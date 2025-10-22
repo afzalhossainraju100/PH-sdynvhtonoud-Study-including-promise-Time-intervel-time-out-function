@@ -17,6 +17,26 @@ async function getData() {
 
 getData();
 
+// A function that returns a promise
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`⏱ Done waiting ${ms} milliseconds`);
+    }, ms);
+  });
+}
+
+// Using async/await
+async function main() {
+  console.log("Start");
+  const message = await delay(2000); // waits for 2 sec
+  console.log(message);
+  console.log("End");
+}
+
+main();
+
+
 
 
 
