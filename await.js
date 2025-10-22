@@ -77,3 +77,22 @@ async function fetchData() {
 
 fetchData();
 
+//Real-Life Example — Fetching Data from an API
+async function loadUser() {
+  try {
+    console.log("⏳ Loading user...");
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1"
+    );
+    const user = await response.json();
+    console.log("👤 User Name:", user.name);
+    console.log("📧 Email:", user.email);
+  } catch (error) {
+    console.error("❌ Error fetching user:", error);
+  } finally {
+    console.log("✅ Request finished");
+  }
+}
+
+loadUser();
+
