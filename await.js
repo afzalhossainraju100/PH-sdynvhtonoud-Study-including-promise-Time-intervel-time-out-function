@@ -52,3 +52,28 @@ async function run() {
   }
 }
 run();
+
+// Promise that sometimes fails
+function getData(success) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (success) resolve("✅ Data fetched successfully!");
+      else reject("❌ Failed to fetch data!");
+    }, 1500);
+  });
+}
+
+async function fetchData() {
+  try {
+    console.log("Fetching...");
+    const result = await getData(false); // change to true to see success
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  } finally {
+    console.log("🔚 Operation complete");
+  }
+}
+
+fetchData();
+
